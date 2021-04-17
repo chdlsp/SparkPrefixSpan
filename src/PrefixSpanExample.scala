@@ -16,10 +16,10 @@ object PrefixSpanExample {
   def main(args: Array[String]) {
     val conf = new SparkConf().setAppName("PrefixSpanExample").setMaster("local[2]")
     val sc = new SparkContext(conf)
+    val currentTime = LocalDateTime.now
 
     val currentDate = LocalDate.parse("2018-12-24")
     val laterDate = currentDate.plusDays(1)
-    val currentTime = LocalDateTime.now
 
     val map1 = Map(('a', currentDate), ('b', laterDate), ('c', laterDate), ('d', laterDate), ('e', laterDate))
     val map2 = Map(('a', laterDate), ('b', laterDate), ('c', laterDate))

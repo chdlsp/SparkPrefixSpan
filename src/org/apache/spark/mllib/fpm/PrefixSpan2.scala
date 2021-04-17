@@ -176,7 +176,6 @@ class PrefixSpan2 private (
   @Since("1.5.0")
   def run[Item, Itemset <: jl.Iterable[Item], Sequence <: jl.Iterable[Itemset]]
   (data: JavaRDD[Sequence]): PrefixSpanModel[Item] = {
-    logInfo("this is the test log");
     implicit val tag = fakeClassTag[Item]
     run(data.rdd.map(_.asScala.map(_.asScala.toArray).toArray))
   }
